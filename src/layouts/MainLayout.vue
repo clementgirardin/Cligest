@@ -8,14 +8,12 @@
           round
           icon="menu"
           aria-label="Menu"
-          @click="toggleLeftDrawer"
+          @click="leftDrawerOpen = !leftDrawerOpen"
         />
 
         <q-toolbar-title>
-          Quasar App
+          Gestion clients
         </q-toolbar-title>
-
-        <div>Quasar v{{ $q.version }}</div>
       </q-toolbar>
     </q-header>
 
@@ -23,19 +21,30 @@
       v-model="leftDrawerOpen"
       show-if-above
       bordered
+      content-class="bg-grey-1"
     >
+      <!-- Liens du menu principal -->
       <q-list>
-        <q-item-label
-          header
-        >
-          Essential Links
-        </q-item-label>
-
-        <EssentialLink
-          v-for="link in essentialLinks"
-          :key="link.title"
-          v-bind="link"
-        />
+        <!-- lien Accueil -->
+        <q-item clickable
+                to="/">
+          <q-item-section avatar>
+            <q-icon name="home" />
+          </q-item-section>
+          <q-item-section>
+            <q-item-label>Accueil</q-item-label>
+          </q-item-section>
+        </q-item>
+        <!-- lien liste clients -->
+        <q-item clickable
+                to="/client">
+          <q-item-section avatar>
+            <q-icon name="list" />
+          </q-item-section>
+          <q-item-section>
+            <q-item-label>Clients</q-item-label>
+          </q-item-section>
+        </q-item>
       </q-list>
     </q-drawer>
 
@@ -46,41 +55,12 @@
 </template>
 
 <script>
-import { defineComponent, ref } from 'vue'
-import EssentialLink from 'components/EssentialLink.vue'
-
-const linksList = [
-  {
-    title: 'Docs',
-    caption: 'quasar.dev',
-    icon: 'school',
-    link: 'https://quasar.dev'
-  },
-  {
-    title: 'Github',
-    caption: 'github.com/quasarframework',
-    icon: 'code',
-    link: 'https://github.com/quasarframework'
-  }
-]
-
-export default defineComponent({
+export default {
   name: 'MainLayout',
-
-  components: {
-    EssentialLink
-  },
-
-  setup () {
-    const leftDrawerOpen = ref(false)
-
+  data () {
     return {
-      essentialLinks: linksList,
-      leftDrawerOpen,
-      toggleLeftDrawer () {
-        leftDrawerOpen.value = !leftDrawerOpen.value
-      }
+      leftDrawerOpen: false
     }
   }
-})
+}
 </script>
