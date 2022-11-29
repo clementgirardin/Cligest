@@ -1,6 +1,5 @@
-import { store } from 'quasar/wrappers'
-import { createStore } from 'vuex'
-
+import Vuex from 'vuex'
+import clients from './store-clients'
 // import example from './module-example'
 
 /*
@@ -12,9 +11,10 @@ import { createStore } from 'vuex'
  * with the Store instance.
  */
 
-export default store(function (/* { ssrContext } */) {
-  const Store = createStore({
+export default (function (/* { ssrContext } */) {
+  const Store = new Vuex.Store({
     modules: {
+      clients
       // example
     },
 
@@ -22,6 +22,5 @@ export default store(function (/* { ssrContext } */) {
     // for dev mode and --debug builds only
     strict: process.env.DEBUGGING
   })
-
   return Store
 })
