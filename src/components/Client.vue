@@ -11,17 +11,17 @@
         <!-- Photo du client -->
         <q-item-section avatar>
           <q-avatar>
-            <img src="https://randomuser.me/api/portraits/thumb/women/9.jpg">
+            <img :src="clients.image">
           </q-avatar>
         </q-item-section>
 
         <!-- Nom, prénom et email du client -->
         <q-item-section>
           <q-item-label lines="1">
-            Marchand Pauline
+            {{ clients.name.nom }} {{ clients.name.prenom }}
           </q-item-label>
           <q-item-label caption lines="2">
-            pauline.marchand@divcom.ch
+            {{ clients.email}}
           </q-item-label>
         </q-item-section>
 
@@ -46,6 +46,12 @@ export default {
         prenom: '',
         email: ''
       }
+    }
+  },
+
+  props:{
+    clients:{
+
     }
   }
 }

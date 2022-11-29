@@ -5,6 +5,7 @@ import { api } from 'boot/axios'
 const state = {
   // Tableau des clients
   clients: [
+
     {
       sexe: 'homme',
       email: 'theo.ballerini@xxx.com',
