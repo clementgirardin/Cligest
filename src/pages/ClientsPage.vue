@@ -1,11 +1,14 @@
 <template>
-<h1>coucou</h1>
+<h1>Liste des clients</h1>
+  <client></client>
 </template>
 
 <script>
+// importation composant client
+import Client from 'components/Client'
 export default {
   name: 'ClientsPage.vue',
-  components: {}
+  components: { Client }
 
 }
 </script>

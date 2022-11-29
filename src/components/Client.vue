@@ -49,8 +49,8 @@ export default {
     }
   },
 
-  props:{
-    clients:{
+  props: {
+    clients: {
 
     }
   }
