@@ -1,11 +1,4 @@
 <template>
-  <q-page padding>
-    <h3>Liste des clients</h3>
-    <q-list
-      class="rounded-borders"
-      bordered
-      separator
-    >
       <!-- Un élément de liste, un client -->
       <q-item clickable v-ripple>
         <!-- Photo du client -->
@@ -18,7 +11,7 @@
         <!-- Nom, prénom et email du client -->
         <q-item-section>
           <q-item-label lines="1">
-            {{ clients.name.nom }} {{ clients.name.prenom }}
+            {{ clients.name.first }} {{ clients.name.last }}
           </q-item-label>
           <q-item-label caption lines="2">
             {{ clients.email}}
@@ -30,25 +23,12 @@
           <q-icon name="email" color="primary"/>
         </q-item-section>
       </q-item>
-    </q-list>
-  </q-page>
 </template>
 
 <script>
 export default {
   // eslint-disable-next-line vue/multi-word-component-names
   name: 'Client.vue',
-  data () {
-    return {
-      form: {
-        urlImage: '',
-        nom: '',
-        prenom: '',
-        email: ''
-      }
-    }
-  },
-
   props: {
     clients: {
 

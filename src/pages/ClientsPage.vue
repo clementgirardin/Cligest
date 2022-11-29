@@ -5,7 +5,7 @@
 
 <script>
 // importation composant client
-import Client from 'components/Client'
+import Client from 'components/Client.vue'
 export default {
   name: 'ClientsPage.vue',
   components: { Client }

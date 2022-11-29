@@ -1,6 +1,6 @@
 // Importation d'Axios sous le nom api
 import { api } from 'boot/axios'
-import {afficherMessageErreur} from "src/fonctions/message-erreur";
+import { afficherMessageErreur } from 'src/fonctions/message-erreur'
 
 // données du magasin
 const state = {
