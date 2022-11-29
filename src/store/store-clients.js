@@ -1,5 +1,6 @@
 // Importation d'Axios sous le nom api
 import { api } from 'boot/axios'
+import {afficherMessageErreur} from "src/fonctions/message-erreur";
 
 // données du magasin
 const state = {
@@ -569,11 +570,28 @@ const state = {
 }
 
 const mutations = {
-
+  // remplace le tableau des clients par la réponse de l'API
+  replaceClients (state, newClients) {
+    state.clients = newClients
+  }
 }
 
 const actions = {
-
+  getClientsApi ({ commit }) {
+    // Exécuter la requête GET https://randomuser.me/api/?results=100&nat=CH
+    api.get('https://randomuser.me/api/?results=100&nat=CH')
+      // En cas de succès : remplacer le tableau des clients par la réponse de l'API
+      .then(function (response) {
+        commit('replaceClients', response.data.results)
+      })
+      // En cas d'échec : afficher un message dans la console
+      .catch(function (error) {
+        afficherMessageErreur(
+          'Erreur lors de la récupération des clients !'
+        )
+        throw error
+      })
+  }
 }
 
 const getters = {
