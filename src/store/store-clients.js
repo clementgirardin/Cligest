@@ -1,5 +1,5 @@
 // Importation d'Axios sous le nom api
-// import { api } from 'boot/axios'
+import { api } from 'boot/axios'
 
 // données du magasin
 const state = {
