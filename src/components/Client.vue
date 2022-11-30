@@ -31,7 +31,8 @@ export default {
   name: 'Client.vue',
   props: {
     clients: {
-
+      required: true,
+      type: Object
     }
   }
 }

@@ -582,7 +582,7 @@ const actions = {
     api.get('https://randomuser.me/api/?results=100&nat=CH')
       // En cas de succès : remplacer le tableau des clients par la réponse de l'API
       .then(function (response) {
-        commit('replaceClients', response.data.results)
+        commit('replaceClients', response.data)
       })
       // En cas d'échec : afficher un message dans la console
       .catch(function (error) {
@@ -595,7 +595,9 @@ const actions = {
 }
 
 const getters = {
-
+  clients: function (state) {
+    return state.clients
+  }
 }
 
 export default {
