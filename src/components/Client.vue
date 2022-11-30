@@ -1,6 +1,6 @@
 <template>
       <!-- Un élément de liste, un client -->
-      <q-item clickable v-ripple>
+      <q-item  clickable v-ripple>
         <!-- Photo du client -->
         <q-item-section avatar>
           <q-avatar>
