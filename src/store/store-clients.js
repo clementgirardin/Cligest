@@ -571,7 +571,7 @@ const state = {
 
 const mutations = {
   // remplace le tableau des clients par la réponse de l'API
-  replaceClients (state, newClients) {
+  setClients (state, newClients) {
     state.clients = newClients
   }
 }
@@ -582,7 +582,8 @@ const actions = {
     api.get('https://randomuser.me/api/?results=100&nat=CH')
       // En cas de succès : remplacer le tableau des clients par la réponse de l'API
       .then(function (response) {
-        commit('replaceClients', response.data)
+        console.log(response)
+        commit('setClients', response.data.results)
       })
       // En cas d'échec : afficher un message dans la console
       .catch(function (error) {

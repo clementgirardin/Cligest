@@ -4,17 +4,17 @@
         <!-- Photo du client -->
         <q-item-section avatar>
           <q-avatar>
-            <img :src="clients.image">
+            <img :src="client.picture.thumbnail">
           </q-avatar>
         </q-item-section>
 
         <!-- Nom, prénom et email du client -->
         <q-item-section>
           <q-item-label lines="1">
-            {{ clients.name.first }} {{ clients.name.last }}
+            {{ client.name.first }} {{ client.name.last }}
           </q-item-label>
           <q-item-label caption lines="2">
-            {{ clients.email}}
+            {{ client.email }}
           </q-item-label>
         </q-item-section>
 
@@ -30,7 +30,7 @@ export default {
   // eslint-disable-next-line vue/multi-word-component-names
   name: 'Client.vue',
   props: {
-    clients: {
+    client: {
       required: true,
       type: Object
     }
