@@ -1,17 +1,19 @@
-<template><!-- TODO mettre un <div> autours du <h4> et <q-list> -->
-  <h4 class="titre">Liste clients</h4>
-  <q-list
-    v-if="clients.length"
-    class="rounded-borders"
-    bordered
-    separator
-  > <!-- Loader liste client -->
-    <client class="marge"
-      v-for="client in clients"
-      :key="client.id"
-      :client="client"
-    />
-  </q-list>
+<template><!-- TODOs mettre un <div> autours du <h4> et <q-list> -->
+  <div>
+    <h4 class="titre">Liste clients</h4>
+    <q-list
+      v-if="clients.length"
+      class="rounded-borders"
+      bordered
+      separator
+    > <!-- Loader liste client -->
+      <client class="marge"
+              v-for="client in clients"
+              :key="client.id"
+              :client="client"
+      />
+    </q-list>
+  </div>
   <!-- Si liste vide afficher message -->
 </template>
 
@@ -21,7 +23,7 @@ import Client from 'components/Client.vue'
 import { mapActions, mapGetters } from 'vuex/dist/vuex.mjs'
 
 export default {
-  name: 'ClientsPage.vue', // TODO enlever .vue
+  name: 'ClientsPage', // TODOs enlever .vue
   components: { Client },
   computed: {
     ...mapGetters('clients', ['clients'])

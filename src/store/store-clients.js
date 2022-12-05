@@ -572,8 +572,7 @@ const state = {
 
 const mutations = {
   // remplace le tableau des clients par la réponse de l'API
-  // TODO nom mutation en majuscules SET_CLIENTS
-  setClients (state, newClients) {
+  SET_CLIENTS (state, newClients) {
     state.clients = newClients
     // TODO state SET_CLIENTS_CHARGES
   }
@@ -595,7 +594,7 @@ const actions = {
       // En cas de succès : remplacer le tableau des clients par la réponse de l'API
       .then(function (response) {
         console.log(response)
-        commit('setClients', response.data.results)
+        commit('SET_CLIENTS', response.data.results)
         // TODO state clientsCharges: true
       })
       // En cas d'échec : afficher un message dans la console
