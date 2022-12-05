@@ -1,6 +1,6 @@
 <template>
-      <!-- Un élément de liste, un client -->
-      <q-item  clickable v-ripple>
+  <!-- Un élément de liste, un client -->
+  <q-item  clickable v-ripple>
         <!-- Photo du client -->
         <q-item-section avatar>
           <q-avatar>
@@ -28,7 +28,7 @@
 <script>
 export default {
   // eslint-disable-next-line vue/multi-word-component-names
-  name: 'Client.vue',
+  name: 'Client.vue', // TODO supprimer .vue renommer fichier en ClientItem
   props: {
     client: {
       required: true,
