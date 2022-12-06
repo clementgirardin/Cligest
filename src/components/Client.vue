@@ -4,7 +4,7 @@
         <!-- Photo du client -->
         <q-item-section avatar>
           <q-avatar>
-            <img :src="client.picture.thumbnail">
+            <img :src="client.picture.thumbnail" alt="">
           </q-avatar>
         </q-item-section>
 
@@ -28,7 +28,7 @@
 <script>
 export default {
   // eslint-disable-next-line vue/multi-word-component-names
-  name: 'Client.vue', // TODO supprimer .vue renommer fichier en ClientItem
+  name: 'Client', // TODOs supprimer .vue renommer fichier en ClientItem
   props: {
     client: {
       required: true,
