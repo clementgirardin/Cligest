@@ -1,6 +1,7 @@
 // Importation d'Axios sous le nom api
 import { api } from 'boot/axios'
 import { afficherMessageErreur } from 'src/fonctions/message-erreur'
+import { Loading } from 'quasar'
 
 // données du magasin
 const state = {
@@ -581,9 +582,8 @@ const mutations = {
 
 const actions = {
   getClientsApi ({ commit }) {
+    // TODOs Ajouter loader
     Loading.show()
-    // TODO Ajouter loader
-
     // https://quasar.dev/quasar-plugins/loading
     // https://quasar.dev/vue-components/spinners
     //
@@ -598,6 +598,7 @@ const actions = {
         console.log(response)
         commit('SET_CLIENTS', response.data.results)
         // TODO state clientsCharges: true
+        Loading.hide()
       })
       // En cas d'échec : afficher un message dans la console
       .catch(function (error) {
@@ -605,6 +606,7 @@ const actions = {
           'Erreur lors de la récupération des clients !'
         )
         // TODO state clientsCharges: false
+        Loading.hide()
         throw error
       })
   }
