@@ -575,9 +575,9 @@ const mutations = {
   // remplace le tableau des clients par la réponse de l'API
   SET_CLIENTS (state, newClients) {
     state.clients = newClients
-    // TODO state SET_CLIENTS_CHARGES
+    // TODOs state SET_CLIENTS_CHARGES
   }
-  // TODO mutation clientsCharges: false
+  // TODOs mutation clientsCharges: false
 }
 
 const actions = {
@@ -589,15 +589,15 @@ const actions = {
     //
     // Exécuter la requête GET https://randomuser.me/api/?results=100&nat=CH
 
-    // TODO state clientsCharges: false
+    // TODOs state clientsCharges: false
 
-    // TODO mettre URL de bas dans axios.js
+    // TODOs mettre URL de bas dans axios.js
     api.get('https://randomuser.me/api/?results=100&nat=CH')
       // En cas de succès : remplacer le tableau des clients par la réponse de l'API
       .then(function (response) {
         console.log(response)
         commit('SET_CLIENTS', response.data.results)
-        // TODO state clientsCharges: true
+        // TODOs state clientsCharges: true
         Loading.hide()
       })
       // En cas d'échec : afficher un message dans la console
@@ -605,7 +605,7 @@ const actions = {
         afficherMessageErreur(
           'Erreur lors de la récupération des clients !'
         )
-        // TODO state clientsCharges: false
+        // TODOs state clientsCharges: false
         Loading.hide()
         throw error
       })
@@ -614,9 +614,10 @@ const actions = {
 
 const getters = {
   clients: function (state) {
-    // TODO appliquer un tri. Ex. nom, prénom ASC
-    const sortDesc = (a, b) => b - a
-    return state.clients.sort(sortDesc)
+    // TODOs appliquer un tri. Ex. nom, prénom ASC
+    const sortDesc = (firstClient, secondClient) => firstClient.name.first.localeCompare(secondClient.name.first)
+    const listeClients = structuredClone(state.clients)
+    return listeClients.sort(sortDesc)
   }
 }
 
