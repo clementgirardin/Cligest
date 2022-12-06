@@ -103,7 +103,8 @@ module.exports = configure(function (ctx) {
 
       // Quasar plugins
       plugins: [
-        'Dialog' // TODO pas oublier d'ajouter les plugins
+        'Dialog',
+        'Loading'// sTODO pas oublier d'ajouter les plugins
       ]
     },
 
