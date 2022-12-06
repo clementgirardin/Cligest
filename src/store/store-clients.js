@@ -581,7 +581,9 @@ const mutations = {
 
 const actions = {
   getClientsApi ({ commit }) {
+    Loading.show()
     // TODO Ajouter loader
+
     // https://quasar.dev/quasar-plugins/loading
     // https://quasar.dev/vue-components/spinners
     //
@@ -611,7 +613,8 @@ const actions = {
 const getters = {
   clients: function (state) {
     // TODO appliquer un tri. Ex. nom, prénom ASC
-    return state.clients
+    const sortDesc = (a, b) => b - a
+    return state.clients.sort(sortDesc)
   }
 }
 

@@ -1,5 +1,4 @@
 <template><!-- TODOs mettre un <div> autours du <h4> et <q-list> -->
-  <div>
     <h4 class="titre">Liste clients</h4>
     <q-list
       v-if="clients.length"
@@ -13,7 +12,6 @@
               :client="client"
       />
     </q-list>
-  </div>
   <!-- Si liste vide afficher message -->
 </template>
 
